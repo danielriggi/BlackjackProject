@@ -1,4 +1,4 @@
-# JetsProject
+# Blackjack Project
 
 <a title="Maximo Betman, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Mesa-blackjack-casino-ciudad-de-mexico-25-04-2023.jpg"><img width="512" alt="Mesa-blackjack-casino-ciudad-de-mexico-25-04-2023" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Mesa-blackjack-casino-ciudad-de-mexico-25-04-2023.jpg/512px-Mesa-blackjack-casino-ciudad-de-mexico-25-04-2023.jpg"></a>
 
