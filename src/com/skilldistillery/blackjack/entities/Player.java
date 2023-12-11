@@ -9,19 +9,14 @@ public class Player {
 		this.hand = new BlackjackHand();
 	}
 
-	
-	public Hand getHand() {
-		return hand;
-	}
-
-	public void setHand(Hand hand) {
-		this.hand = hand;
-	}
-	
-	public int playerTurn(Dealer dealer, Scanner scanner) {
+	public int playPlayerTurn(Dealer dealer, Scanner scanner) {
 		System.out.printf("%nYour hand: %n%s%n", getHand().toString());
 		int choice = 1;
-		while(hand.getHandValue() <= 21 && !(((BlackjackHand) hand).isBlackjack())) {
+		if (((BlackjackHand) hand).isBlackjack()) {
+			System.out.println("Player Blackjack!!!");
+			
+		}
+		while(hand.getHandValue() <= 21 && !((BlackjackHand) hand).isBlackjack()) {
 			playerTurnMenu();
 			choice = scanner.nextInt();
 			if (choice != 2 && choice != 1) {
@@ -36,7 +31,7 @@ public class Player {
 				getHand().addCard(newCard);
 				System.out.println(newCard.toString());
 			}
-			System.out.printf("%nYou now have: %n%s%n", getHand().toString());
+			System.out.printf("%nYou now have: %n%s%n", hand.toString());
 		}	
 		int handValue = getHand().getHandValue();
 		if (handValue > 21) {
@@ -52,6 +47,13 @@ public class Player {
         System.out.println("1. Hit");
         System.out.println("2. Stand");
     }
-	
+		
+	public Hand getHand() {
+		return hand;
+	}
+
+	public void setHand(Hand hand) {
+		this.hand = hand;
+	}
 	
 }

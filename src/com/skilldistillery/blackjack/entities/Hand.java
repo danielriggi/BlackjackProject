@@ -22,11 +22,22 @@ public abstract class Hand {
 	
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		for (Card card: cards) {
-			stringBuilder.append(card).append("\n");
-		}
+		stringBuilder.append("{");
+	    int size = cards.size();
+	    for (int i = 0; i < size; i++) {
+	        stringBuilder.append(cards.get(i));
+	        if (i < size - 1) {
+	            stringBuilder.append(", ");
+	        }
+	    }
+	    
+	    stringBuilder.append("}"); // Add closing bracket
+	   
 		return stringBuilder.toString();
 	}
 
+	public List<Card> getCards() {
+		return cards;
+	}
 }
 

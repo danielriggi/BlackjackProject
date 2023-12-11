@@ -25,7 +25,7 @@ public class Dealer {
 		}
 	}
 	
-	public void performInitialDeal(Player player, Card playerCard1, 
+	public void performTestInitialDeal(Player player, Card playerCard1, 
 			Card playerCard2, Card dealerCard1, Card dealerCard2) {
 		// Logic for the initial deal at the start of the game
 		
@@ -45,18 +45,24 @@ public class Dealer {
 	}
 
 	public int playDealerTurn() {
-		System.out.println("Dealer is playing their turn:");
+		System.out.println("\nDealer is playing their turn...");
 		while (hand.getHandValue() < 17 || ((BlackjackHand) hand).isSoftSeventeen()) {
 			Card card = deck.dealCard();
 			hand.addCard(card);
 			System.out.printf("%nDealer must hit, receives: %n%s%n", card.toString());
+			System.out.printf("%nDealer now has: %n%s", hand.toString());
 			System.out.printf("%nDealer total: %d%n", hand.getHandValue());
+		}
+		if (hand.getHandValue() > 21) {
+			System.out.println("Dealer busts!");
+		}
+		else {
+			System.out.println("Dealer stands.");
 		}
 		System.out.printf("%nDealer turn over.%nDealer total: %d%n", hand.getHandValue());
 		return hand.getHandValue();
 	}
 
-	
 	public Hand getHand() {
 		return hand;
 	}
@@ -64,5 +70,14 @@ public class Dealer {
 	public void setHand(Hand hand) {
 		this.hand = hand;
 	}
+
+	public boolean hasBlackjack() {
+	    return ((BlackjackHand) hand).isBlackjack();
+	}
+
+	public Card getShowCard() {
+		return hand.getCards().get(0);
+	}
+	
 
 }
