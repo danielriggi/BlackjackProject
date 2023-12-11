@@ -51,40 +51,6 @@ public class BlackjackApp {
 		
 	}
 	
-	public void testRun() {
-		addPlayers(1);
-		System.out.println("Welcome to Blackjack!");
-		System.out.println("The dealer is dealing...");
-		Card card1 = new Card(Suit.CLUBS, Rank.ACE);
-		Card card2 = new Card(Suit.DIAMONDS, Rank.KING);
-		Card card3 = new Card(Suit.SPADES, Rank.FOUR);
-		Card card4 = new Card(Suit.DIAMONDS, Rank.EIGHT);
-		dealer.performTestInitialDeal(playerList.get(0), card1, card2, card3, card4);
-		
-		if (dealer.hasBlackjack()) {
-			System.out.printf("%nDealer has %n%s%n", dealer.getHand().toString());
-			System.out.println("\nDealer blackjack, dealer wins!");
-			return;
-		}
-		
-		int playerIndex = 1;
-		for (Player currentPlayer : playerList) {
-			System.out.printf("%nPlayer %d's turn:%n", playerIndex);
-			currentPlayer.playPlayerTurn(dealer, scanner);
-			playerIndex++;
-		}
-		
-		System.out.printf("%nDealer has %n%s%n", dealer.getHand().toString());
-		int dealerTotal = dealer.playDealerTurn();
-		playerIndex = 1;
-		for (Player currentPlayer : playerList) {
-			System.out.printf("%nPlayer %d:%n", playerIndex);
-			showWinner(dealerTotal, currentPlayer.getHand().getHandValue());
-			playerIndex++;
-		}
-	
-	}
-
 	public void showWinner(int dealerTotal, int playerTotal) {
 		if (playerTotal > 21) { 
 			System.out.println("Player loses!");

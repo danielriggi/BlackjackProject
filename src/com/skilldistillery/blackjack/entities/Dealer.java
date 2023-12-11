@@ -36,21 +36,6 @@ public class Dealer {
 		}
 	}
 	
-	public void performTestInitialDeal(Player player, Card playerCard1, 
-			Card playerCard2, Card dealerCard1, Card dealerCard2) {
-		// Logic for the initial deal at the start of the game
-		
-		player.getHand().addCard(playerCard1);
-		player.getHand().addCard(playerCard2);
-		hand.addCard(dealerCard1);
-		hand.addCard(dealerCard2);
-		deck.removeCard(playerCard1);
-		deck.removeCard(playerCard2);
-		deck.removeCard(dealerCard1);
-		deck.removeCard(dealerCard2);
-
-	}
-
 	public Card dealCard() {
 		return deck.dealCard();
 	}
