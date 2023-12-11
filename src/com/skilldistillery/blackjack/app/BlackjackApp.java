@@ -21,7 +21,7 @@ public class BlackjackApp {
 	}
 	
 	public void run() {
-		addPlayers(1);
+		addPlayers(3);
 		System.out.println("Welcome to Blackjack!");
 		System.out.println("The dealer is dealing...");
 	
@@ -31,10 +31,11 @@ public class BlackjackApp {
 			System.out.println("\nDealer blackjack, dealer wins!");
 			return;
 		}
-		System.out.printf("%nDealer is showing  %n%s%n", dealer.getShowCard().toString());
+		
 		int playerIndex = 1;
 		for (Player currentPlayer : playerList) {
 			System.out.printf("%nPlayer %d's turn:%n", playerIndex);
+			System.out.printf("%nDealer is showing  %n%s%n", dealer.getShowCard().toString());
 			currentPlayer.playPlayerTurn(dealer, scanner);
 			playerIndex++;
 		}

@@ -18,10 +18,21 @@ public class Dealer {
 	public void performInitialDeal(List<Player> players) {
 		// Logic for the initial deal at the start of the game
 		for (int i = 0; i < 2; i++) {
+			int idx = 1;
 			for (Player player : players) {
-				player.getHand().addCard(deck.dealCard());
+				Card card = deck.dealCard();
+				System.out.printf("Player %d recieves %s%n", idx, card.toString());
+				player.getHand().addCard(card);
+				idx++;
 			}
-			hand.addCard(deck.dealCard());
+			Card dealerCard = deck.dealCard();
+			hand.addCard(dealerCard);
+			if (i == 1) {
+				System.out.printf("Dealer recieves %s%n", dealerCard.toString());
+				hand.addCard(deck.dealCard());
+			} else {
+				System.out.println("Dealer recieves face down card");
+			}
 		}
 	}
 	
@@ -76,7 +87,7 @@ public class Dealer {
 	}
 
 	public Card getShowCard() {
-		return hand.getCards().get(0);
+		return hand.getCards().get(1);
 	}
 	
 
