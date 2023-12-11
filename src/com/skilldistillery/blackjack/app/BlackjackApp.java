@@ -21,7 +21,7 @@ public class BlackjackApp {
 	}
 	
 	public void run() {
-		addPlayers(3);
+		addPlayers(2);
 		System.out.println("Welcome to Blackjack!");
 		System.out.println("The dealer is dealing...");
 	
@@ -39,6 +39,19 @@ public class BlackjackApp {
 			currentPlayer.playPlayerTurn(dealer, scanner);
 			playerIndex++;
 		}
+		
+		boolean allBust = true;
+		for (Player currentPlayer : playerList) {
+			if (currentPlayer.getHand().getHandValue() <= 21) {
+				allBust = false;
+			}
+		}
+		
+		if (allBust) {
+			System.out.println("All players busted, dealer wins!");
+			return;
+		}
+		
 		
 		System.out.printf("%nDealer has %n%s%n", dealer.getHand().toString());
 		int dealerTotal = dealer.playDealerTurn();
